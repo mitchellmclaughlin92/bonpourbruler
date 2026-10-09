@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bon Pour Bruler</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="icon" type="image/png" sizes="256x256" href="favicon.png">
+<style>
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+    cursor: url("cursor.png") 24 24, auto;
+    margin: 0;
+    background: #fff;
+    color: #222;
+    font-family: "STFangsong", serif;
+    font-size: 17px;
+    line-height: 1.35;
+    letter-spacing: 1px;
+}
+.container { max-width: 900px; margin: 0 auto; padding: 25px 20px 70px; }
+header { text-align: center; margin-bottom: 20px; }
+header img { width: 70%; max-width: 600px; height: auto; display: block; margin: 0 auto; }
+.intro { max-width: 700px; margin: 0 auto 35px; text-align: center; }
+.intro p { margin: 0; }
+.menu {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    margin: 0 0 70px;
+}
+.menu a { display: block; text-decoration: none; cursor: url("cursor.png") 24 24, pointer; }
+.menu img {
+    width: 100%;
+    aspect-ratio: 1.6 / 1;
+    object-fit: contain;
+    display: block;
+}
+.menu a:hover { opacity: 0.75; }
+section { margin-bottom: 80px; scroll-margin-top: 25px; }
+h2 { font-size: 17px; font-weight: normal; letter-spacing: 1px; margin: 0 0 25px; }
+.music { max-width: 650px; }
+.player {
+    border: 1px solid #222;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+.player button {
+    font: inherit;
+    font-size: 15px;
+    background: none;
+    border: 1px solid #222;
+    padding: 6px 12px;
+    cursor: pointer;
+}
+.player button:hover { background: #eee; }
+.player input[type="range"] { flex: 1; cursor: pointer; }
+.time { min-width: 75px; font-size: 13px; letter-spacing: 0; }
+.show {
+    display: grid;
+    grid-template-columns: 130px 1fr auto;
+    gap: 20px;
+    padding: 15px 0;
+    border-top: 1px solid #ddd;
+    align-items: center;
+}
+.show:last-child { border-bottom: 1px solid #ddd; }
+.date { font-weight: bold; }
+.venue { font-size: 18px; }
+.location { color: #666; font-size: 15px; }
+.tickets { color: #222; text-decoration: none; font-size: 14px; }
+.tickets:hover { text-decoration: underline; }
+.contact a { color: #222; text-decoration: none; border-bottom: 1px solid #222; }
+.contact a:hover { opacity: 0.5; }
+.archive-item { margin-bottom: 65px; }
+.archive-item img { width: 100%; height: auto; display: block; margin-bottom: 12px; }
+.archive-title { font-size: 19px; margin-bottom: 4px; }
+.archive-text { max-width: 700px; color: #444; }
+footer { text-align: center; margin-top: 90px; font-size: 13px; color: #888; letter-spacing: 0; }
+@media (max-width: 700px) {
+    .container { padding: 18px 15px 55px; }
+    header img { width: 90%; }
+    .menu { grid-template-columns: repeat(2, 1fr); gap: 8px; margin-bottom: 55px; }
+    .show { grid-template-columns: 1fr; gap: 4px; }
+    .tickets { margin-top: 7px; }
+    section { margin-bottom: 60px; }
+    .player { flex-wrap: wrap; }
+    .player input[type="range"] { order: 3; flex-basis: 100%; }
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+<header>
+    <img src="header.jpg" alt="Bon Pour Bruler">
+</header>
+
+<!-- Add your short introductory paragraph here. Delete the placeholder when ready. -->
+<div class="intro">
+    <p>welcome to the online home of bon pour bruler, the band of alex g, chris b, ben s and mitch m. click a dog to find out more.</p>
+</div>
+
+<!-- IMAGE MENU -->
+<nav class="menu">
+    <a href="#music"><img src="music.jpg" alt="Music"></a>
+    <a href="#shows"><img src="shows.jpg" alt="Shows"></a>
+    <a href="#contact"><img src="contact.jpg" alt="Contact"></a>
+    <a href="#archive"><img src="archive.jpg" alt="Archive"></a>
+</nav>
+
+<!-- MUSIC -->
+<section id="music">
+    <h2>Music</h2>
+    <div class="music">
+        <!--
+            SIMPLE SINGLE-SONG PLAYER.
+            Put your MP3 in this same folder and name it song.mp3.
+            You can then replace song.mp3 below if you prefer another filename.
+        -->
+        <div class="player">
+            <button id="playButton" type="button">PLAY</button>
+            <span class="time" id="time">0:00 / 0:00</span>
+            <input id="progress" type="range" min="0" max="100" value="0" aria-label="Song progress">
+        </div>
+        <audio id="audio" src="song.mp3" preload="metadata"></audio>
+    </div>
+</section>
+
+<!-- SHOWS -->
+<section id="shows">
+    <h2>Shows</h2>
+    <!-- Copy this whole block to add another show. -->
+    <div class="show">
+        <div class="date">DATE TBA</div>
+        <div>
+            <div class="venue">Wreckers</div>
+            <div class="location">Woolloongabba</div>
+        </div>
+        <a class="tickets" href="#" target="_blank">tickets</a>
+    </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="contact">
+    <h2>Contact</h2>
+    <p><a href="mailto:mitchellmclaughlin@outlook.com">mitchellmclaughlin@outlook.com</a></p>
+    <p><a href="https://instagram.com/" target="_blank">instagram </a></p>
+    <p><a href="https://bonpourbruler.bandcamp.com/" target="_blank">bandcamp </a></p>
+</section>
+
+<!-- ARCHIVE -->
+<section id="archive">
+    <h2>Archive</h2>
+
+    <!--
+        SIMPLE ARCHIVE ENTRY.
+        Put the image inside the archive folder and change the filename.
+        Title and text are optional.
+    -->
+    <div class="archive-item">
+        <img src="archive/archive-image-1.jpg" alt="Archive image">
+        <div class="archive-title">Archive title</div>
+        <div class="archive-text">Add a small amount of text here if you want.</div>
+    </div>
+
+    <!--
+    COPY THIS BLOCK FOR ANOTHER ARCHIVE ENTRY:
+
+    <div class="archive-item">
+        <img src="archive/another-image.jpg" alt="Description of image">
+        <div class="archive-title">Another entry</div>
+        <div class="archive-text">Your text goes here.</div>
+    </div>
+    -->
+</section>
+
+<footer>c bpb 20-20 sixxy</footer>
+</div>
+
+<script>
+const audio = document.getElementById('audio');
+const playButton = document.getElementById('playButton');
+const progress = document.getElementById('progress');
+const time = document.getElementById('time');
+
+function formatTime(seconds) {
+    if (!isFinite(seconds)) return '0:00';
+    const minutes = Math.floor(seconds / 60);
+    const secs = Math.floor(seconds % 60).toString().padStart(2, '0');
+    return minutes + ':' + secs;
+}
+
+playButton.addEventListener('click', () => {
+    if (audio.paused) {
+        audio.play();
+    } else {
+        audio.pause();
+    }
+});
+
+audio.addEventListener('play', () => playButton.textContent = 'PAUSE');
+audio.addEventListener('pause', () => playButton.textContent = 'PLAY');
+audio.addEventListener('loadedmetadata', () => {
+    time.textContent = '0:00 / ' + formatTime(audio.duration);
+});
+audio.addEventListener('timeupdate', () => {
+    if (audio.duration) progress.value = (audio.currentTime / audio.duration) * 100;
+    time.textContent = formatTime(audio.currentTime) + ' / ' + formatTime(audio.duration);
+});
+progress.addEventListener('input', () => {
+    if (audio.duration) audio.currentTime = (progress.value / 100) * audio.duration;
+});
+audio.addEventListener('ended', () => {
+    playButton.textContent = 'PLAY';
+    progress.value = 0;
+});
+</script>
+</body>
+</html>
